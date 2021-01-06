@@ -2,13 +2,17 @@
 
 ### Requires Python 3.3+
 
-## Create a new virtualenv named "privacy_api" and activate it
+## Create a new virtualenv named ".env" and activate it
 
-$ python3 -m venv privacy_api
+$ python3 -m venv .env
 
-$ virtualenv privacy_api
+$ virtualenv .env
 
-$ source privacy_api/bin/activate
+$ source .env/bin/activate
+
+## Run the setup.sh to install dependencies
+$ chmod u+x setup.sh
+$ ./setup.sh
 
 ## To run the API server
 $ python3 privacy_api.py
