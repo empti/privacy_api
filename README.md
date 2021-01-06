@@ -1,8 +1,9 @@
 # privacy_api
 
+### Requires Python 3.3+
+
 ## Create a new virtualenv named "privacy_api" and activate it
 
-## Requires Python 3.3+
 $ python -m venv privacy_api
 
 $ virtualenv privacy_api
