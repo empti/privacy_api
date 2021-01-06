@@ -4,7 +4,7 @@
 
 ## Create a new virtualenv named "privacy_api" and activate it
 
-$ python -m venv privacy_api
+$ python3 -m venv privacy_api
 
 $ virtualenv privacy_api
 
