@@ -1,3 +1,4 @@
+pip3 install faker
 pip3 install flask
 pip3 install pandas
 pip3 install spacy
