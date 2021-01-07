@@ -4,6 +4,7 @@ from flask import abort
 from flask import make_response
 from flask import request
 import pandas as pd
+import re
 import spacy
 
 nlp = spacy.load("en_core_web_sm")
@@ -17,6 +18,18 @@ privacy_type_mapping = pd.read_csv(
     keep_default_na=False,
     converters={"Requirements": lambda x: x.split("\n") if x else None},
 ).to_dict('index')
+
+
+def extract_email(text):
+    return re.findall('[A-Za-z0-9]+[A-Za-z0-9._%+-]*@\w+.\w{2,4}', text)
+
+
+def extract_phone(text):
+    return re.findall('(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})', text)
+
+
+def extract_chd(text):
+    return re.findall('[0-9]{16}', text)
 
 # The API endpoint is: /data/api/v0.1/classify
 
@@ -64,6 +77,24 @@ def process_data():
             }
             data_matchings.append(data_matching_object)
             print(data_matching_object)
+
+    for extracted in extract_email(nlp_doc.text) + extract_phone(nlp_doc.text):
+        data_matching_object = {
+            'type': 'CONTACT',
+            'value': extracted,
+            'requirements': ['GLBA', 'CCPA', 'PIPEDA'],
+        }
+        data_matchings.append(data_matching_object)
+        print(data_matching_object)
+
+    for extracted in extract_chd(nlp_doc.text):
+        data_matching_object = {
+            'type': 'CHD',
+            'value': extracted,
+            'requirements': ['PCI'],
+        }
+        data_matchings.append(data_matching_object)
+        print(data_matching_object)
 
     data_result = {
         'match': bool(data_matchings),
