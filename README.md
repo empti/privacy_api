@@ -26,4 +26,15 @@ $ chmod u+x test_basic.sh
 $ test_basic.sh
 
 ## The test data (request body) is in the following file:
-$ body.json
+$ examples/body.json
+
+## To generate more test data
+
+$ python generate_message.py 
+
+$ python generate_message.py test.json --person True --phone True
+
+Generated data file is saved into example/ directory.
+
+## To run the api on test data
+$ curl -i -H "Content-Type: application/json" -X POST --data @examples/test.json http://127.0.0.1:5000/data/api/v0.1/classify

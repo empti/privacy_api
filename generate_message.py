@@ -39,7 +39,7 @@ def generate_message(filename=None, person=None, date=None, money=None, email=No
         text = text + str(fake.phone_number()) + ', '
     if creditcard or (creditcard is None and fake.random_element([True, False])):
         text = text + str(fake.credit_card_number()) + ', '
-    json_message = '{{"message" : "{text}"}}'.format(text=text)
+    json_message = '{{"message" : "{text}"}}\n'.format(text=text)
 
     with open('examples/'+filename, 'w') as f:
         f.write(json_message)
