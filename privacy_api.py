@@ -34,8 +34,8 @@ def extract_chd(text):
 # The API endpoint is: /data/api/v0.1/classify
 
 @app.route('/data/api/v0.1/classify', methods=['GET'])
-def get_sample():
-    return jsonify(samples[0])
+def get_handling():
+    return jsonify({'error': 'GET is not supported. Use POST with the right payload.'})
 
 
 @app.errorhandler(400)
