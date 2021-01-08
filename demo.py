@@ -138,6 +138,7 @@ if btn:
         reqs = list(reqs)
         starting_index = 0
         seg = []
+        all_offsets.sort()
         for idx, off in enumerate(all_offsets):
             if idx == 0:
                 seg.append(t[0:off[0]])
