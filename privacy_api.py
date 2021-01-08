@@ -34,8 +34,8 @@ def extract_chd(text):
 # The API endpoint is: /data/api/v0.1/classify
 
 @app.route('/data/api/v0.1/classify', methods=['GET'])
-def get_sample():
-    return jsonify(samples[0])
+def get_handling():
+    return jsonify({'error': 'GET is not supported. Use POST with the right payload.'})
 
 
 @app.errorhandler(400)
@@ -76,7 +76,6 @@ def process_data():
                 'requirements': privacy_type_mapping[entity.label_]['Requirements'],
             }
             data_matchings.append(data_matching_object)
-            print(data_matching_object)
 
     for extracted in extract_email(nlp_doc.text) + extract_phone(nlp_doc.text):
         data_matching_object = {
@@ -85,7 +84,6 @@ def process_data():
             'requirements': ['GLBA', 'CCPA', 'PIPEDA'],
         }
         data_matchings.append(data_matching_object)
-        print(data_matching_object)
 
     for extracted in extract_chd(nlp_doc.text):
         data_matching_object = {
@@ -94,7 +92,6 @@ def process_data():
             'requirements': ['PCI'],
         }
         data_matchings.append(data_matching_object)
-        print(data_matching_object)
 
     data_result = {
         'match': bool(data_matchings),
