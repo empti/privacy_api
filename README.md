@@ -19,7 +19,7 @@ $ ./setup.sh
 ## To run the API server
 $ python3 privacy_api.py
 
-## To run the dmeo
+## To run the demo
 $ streamlit run demo.py 
 
 ## To run the test, use the following script
