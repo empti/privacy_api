@@ -101,13 +101,13 @@ new_height = 600
 new_width = new_height * width / height
 
 image.thumbnail((new_width, new_height), Image.ANTIALIAS)
-st.title('Affirm Privacy API')
+st.title('Affirm Data Privacy API')
 st.sidebar.image(image)
 
-st.sidebar.info('Project description here')
+st.sidebar.info('"Affirm Data Privacy API" will be taking the text (and label, as optional item) as input, and return matching value, data type, and corresponding regulation/compliance indications. With an API like this, we can sample any Affirm data we have, and forward it to this API for analysis and get results quickly. ')
 
 
-t = st.text_area('Enter log message')
+t = st.text_area('Enter message')
 btn = st.button("Detect")
 
 if btn:
