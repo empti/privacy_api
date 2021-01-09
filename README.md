@@ -22,6 +22,8 @@ $ python3 privacy_api.py
 ## To run the demo
 $ streamlit run demo.py 
 
+Use browser to open http://localhost:8501
+
 ## To run the test, use the following script
 
 $ chmod u+x test_basic.sh
