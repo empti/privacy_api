@@ -2,6 +2,11 @@
 
 ### Requires Python 3.3+
 
+## (Recommended) Run the application in a Docker container:
+$ docker build -t dpapi:v0.10 .
+$ docker container run -dp 8501:8501 dpapi:v0.10
+(Open a browser and use URL http://localhost:8501) 
+
 ## Create a new virtualenv named ".env" and activate it
 
 $ python3 -m venv .env
