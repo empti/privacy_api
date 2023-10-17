@@ -9,7 +9,8 @@ COPY * /DPAPI/
 WORKDIR /DPAPI/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3.7 \
+    python3.7-dev \
+    build-essential \
     python3-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
