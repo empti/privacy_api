@@ -1,4 +1,4 @@
-# A***** Data Privacy API
+# Data Privacy API
 
 ### Requires Python 3.3+
 
