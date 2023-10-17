@@ -94,17 +94,17 @@ def include_all(l):
     return "(" + ", ".join(l) + ")"
 
 
-image = Image.open('./affirm_logo.png')
+image = Image.open('./Voyager_logo.png')
 
 height, width = image.size
 new_height = 600
 new_width = new_height * width / height
 
 image.thumbnail((new_width, new_height), Image.ANTIALIAS)
-st.title('Affirm Data Privacy API')
+st.title('Data Privacy API')
 st.sidebar.image(image)
 
-st.sidebar.info('"Affirm Data Privacy API" takes the text (and label, as optional item) as input, and returns matching value, data type, and corresponding regulation/compliance indications. With an “Affirm Data Privacy API”, we can feed it with any Affirm data we have, evaluate the risk and get consistent results quickly. ')
+st.sidebar.info('"Data Privacy API" takes the text (and label, as optional item) as input, and returns matching value, data type, and corresponding regulation/compliance indications. With an “Data Privacy API”, we can feed it with any data we have, evaluate the risk and get consistent results quickly. ')
 
 
 t = st.text_area('Enter message')
